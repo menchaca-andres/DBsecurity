@@ -1,47 +1,41 @@
--- Nombre de la bd: db_pwe
+-- Created by Vertabelo (http://vertabelo.com)
+-- Last modification date: 2025-04-14 22:17:34.204
+
 -- tables
 -- Table: ACTIVIDADES
 CREATE TABLE ACTIVIDADES (
-    id_actividad int  NOT NULL,
+    id_actividad serial  NOT NULL,
     nombre_actividad varchar(100)  NOT NULL,
     descripcion text  NOT NULL,
     CONSTRAINT ACTIVIDADES_pk PRIMARY KEY (id_actividad)
 );
 
-SELECT * FROM ACTIVIDADES;
-
 -- Table: CATEGORIAS_ITEMS
 CREATE TABLE CATEGORIAS_ITEMS (
-    id_categoria int  NOT NULL,
+    id_categoria serial  NOT NULL,
     nombre varchar(100)  NOT NULL,
     descripcion varchar(600)  NOT NULL,
     CONSTRAINT CATEGORIAS_ITEMS_pk PRIMARY KEY (id_categoria)
 );
 
-SELECT * FROM CATEGORIAS_ITEMS;
-
 -- Table: CIUDADES
 CREATE TABLE CIUDADES (
-    id_ciudad int  NOT NULL,
+    id_ciudad serial  NOT NULL,
     id_departamento int  NOT NULL,
     nombre_ciudad varchar(50)  NOT NULL,
     CONSTRAINT CIUDADES_pk PRIMARY KEY (id_ciudad)
 );
 
-SELECT * FROM CIUDADES;
-
 -- Table: DEPARTAMENTOS
 CREATE TABLE DEPARTAMENTOS (
-    id_departamento int  NOT NULL,
+    id_departamento serial  NOT NULL,
     nombre_depto varchar(30)  NOT NULL,
     CONSTRAINT DEPARTAMENTOS_pk PRIMARY KEY (id_departamento)
 );
 
-SELECT * FROM DEPARTAMENTOS;
-
 -- Table: EMPRESAS
 CREATE TABLE EMPRESAS (
-    id_empresa int  NOT NULL,
+    id_empresa serial  NOT NULL,
     denominacion_social varchar(100)  NOT NULL,
     nombre_comercial varchar(100)  NOT NULL,
     fecha_fundacion date  NOT NULL,
@@ -50,8 +44,6 @@ CREATE TABLE EMPRESAS (
     url varchar(200)  NOT NULL,
     CONSTRAINT EMPRESAS_pk PRIMARY KEY (id_empresa)
 );
-
-SELECT * FROM EMPRESAS;
 
 -- Table: EMPRESAS_ITEMS
 CREATE TABLE EMPRESAS_ITEMS (
@@ -63,8 +55,6 @@ CREATE TABLE EMPRESAS_ITEMS (
     CONSTRAINT EMPRESAS_ITEMS_pk PRIMARY KEY (id_empresa_item)
 );
 
-SELECT * FROM EMPRESAS_ITEMS;
-
 -- Table: EMPRESAS_SEDES
 CREATE TABLE EMPRESAS_SEDES (
     id_empresa int  NOT NULL,
@@ -74,8 +64,6 @@ CREATE TABLE EMPRESAS_SEDES (
     tipo boolean  NOT NULL,
     CONSTRAINT EMPRESAS_SEDES_pk PRIMARY KEY (id_empresa,id_ubicacion)
 );
-
-SELECT * FROM EMPRESAS_SEDES;
 
 -- Table: EMPRESAS_TAMANIOS
 CREATE TABLE EMPRESAS_TAMANIOS (
@@ -87,8 +75,6 @@ CREATE TABLE EMPRESAS_TAMANIOS (
     CONSTRAINT EMPRESAS_TAMANIOS_pk PRIMARY KEY (id_tamanio,id_empresa)
 );
 
-SELECT * FROM EMPRESAS_TAMANIOS;
-
 -- Table: EMPRESAS_TIPOS_SOCIETARIOS
 CREATE TABLE EMPRESAS_TIPOS_SOCIETARIOS (
     id_empresa int  NOT NULL,
@@ -97,8 +83,6 @@ CREATE TABLE EMPRESAS_TIPOS_SOCIETARIOS (
     fecha_fin date  NOT NULL,
     CONSTRAINT EMPRESAS_TIPOS_SOCIETARIOS_pk PRIMARY KEY (id_empresa,id_tipsoc)
 );
-
-SELECT * FROM EMPRESAS_TIPOS_SOCIETARIOS;
 
 -- Table: EMPRESA_ACTIVIDAD
 CREATE TABLE EMPRESA_ACTIVIDAD (
@@ -110,16 +94,12 @@ CREATE TABLE EMPRESA_ACTIVIDAD (
     CONSTRAINT EMPRESA_ACTIVIDAD_pk PRIMARY KEY (id_actividad,id_empresa)
 );
 
-SELECT * FROM EMPRESA_ACTIVIDAD;
-
 -- Table: FAMILIA
 CREATE TABLE FAMILIA (
-    id_familia int  NOT NULL,
+    id_familia serial  NOT NULL,
     nombre_familia varchar(50)  NOT NULL,
     CONSTRAINT FAMILIA_pk PRIMARY KEY (id_familia)
 );
-
-SELECT * FROM FAMILIA;
 
 -- Table: HISTORIAL_PROPIEDAD
 CREATE TABLE HISTORIAL_PROPIEDAD (
@@ -132,11 +112,9 @@ CREATE TABLE HISTORIAL_PROPIEDAD (
     CONSTRAINT HISTORIAL_PROPIEDAD_pk PRIMARY KEY (id_historial)
 );
 
-SELECT * FROM HISTORIAL_PROPIEDAD;
-
 -- Table: HITOS
 CREATE TABLE HITOS (
-    id_hito int  NOT NULL,
+    id_hito serial  NOT NULL,
     id_empresa int  NOT NULL,
     descripcion text  NOT NULL,
     fecha_h date  NOT NULL,
@@ -144,18 +122,14 @@ CREATE TABLE HITOS (
     CONSTRAINT HITOS_pk PRIMARY KEY (id_hito)
 );
 
-SELECT * FROM HITOS;
-
 -- Table: ITEMS
 CREATE TABLE ITEMS (
-    id_item int  NOT NULL,
+    id_item serial  NOT NULL,
     nombre_item varchar(100)  NOT NULL,
     tipo_item boolean  NOT NULL,
     descripcion varchar(100)  NOT NULL,
     CONSTRAINT ITEMS_pk PRIMARY KEY (id_item)
 );
-
-SELECT * FROM ITEMS;
 
 -- Table: ITEMS_CATEGORIAS
 CREATE TABLE ITEMS_CATEGORIAS (
@@ -164,29 +138,23 @@ CREATE TABLE ITEMS_CATEGORIAS (
     CONSTRAINT ITEMS_CATEGORIAS_pk PRIMARY KEY (id_item,id_categoria)
 );
 
-SELECT * FROM ITEMS_CATEGORIAS;
-
 -- Table: MUNICIPIOS
 CREATE TABLE MUNICIPIOS (
-    id_municipio int  NOT NULL,
+    id_municipio serial  NOT NULL,
     id_ciudad int  NOT NULL,
     nombre_municipio varchar(100)  NOT NULL,
     CONSTRAINT MUNICIPIOS_pk PRIMARY KEY (id_municipio)
 );
 
-SELECT * FROM MUNICIPIOS;
-
 -- Table: PREMIOS
 CREATE TABLE PREMIOS (
-    id_premio int  NOT NULL,
+    id_premio serial  NOT NULL,
     entidad_otorgadora varchar(50)  NOT NULL,
     tipo_premio boolean  NOT NULL,
     url varchar(200)  NOT NULL,
     descripcion text  NOT NULL,
     CONSTRAINT PREMIOS_pk PRIMARY KEY (id_premio)
 );
-
-SELECT * FROM PREMIOS;
 
 -- Table: PREMIOS_EMPRESAS
 CREATE TABLE PREMIOS_EMPRESAS (
@@ -196,49 +164,39 @@ CREATE TABLE PREMIOS_EMPRESAS (
     CONSTRAINT PREMIOS_EMPRESAS_pk PRIMARY KEY (id_premio,id_empresa)
 );
 
-SELECT * FROM PREMIOS_EMPRESAS;
-
 -- Table: PRODUCTO
 CREATE TABLE PRODUCTO (
+    id_producto serial  NOT NULL,
     id_item int  NOT NULL,
-    id_producto int  NOT NULL,
     url varchar(200)  NOT NULL,
     CONSTRAINT PRODUCTO_pk PRIMARY KEY (id_producto)
 );
 
-SELECT * FROM PRODUCTO;
-
 -- Table: PROPIETARIOS
 CREATE TABLE PROPIETARIOS (
-    id_propietario int  NOT NULL,
+    id_propietario serial  NOT NULL,
+    id_familia int  NOT NULL,
     nombre varchar(100)  NOT NULL,
     apellido_paterno varchar(100)  NOT NULL,
     apellido_materno varchar(100)  NOT NULL,
     nacionalidad varchar(200)  NOT NULL,
-    FAMILIA_id_familia int  NOT NULL,
     CONSTRAINT PROPIETARIOS_pk PRIMARY KEY (id_propietario)
 );
 
-SELECT * FROM PROPIETARIOS;
-
 -- Table: ROLES
 CREATE TABLE ROLES (
-    id_rol int  NOT NULL,
+    id_rol serial  NOT NULL,
     nombre_rol varchar(50)  NOT NULL,
     CONSTRAINT ROLES_pk PRIMARY KEY (id_rol)
 );
 
-SELECT * FROM ROLES;
-
 -- Table: RUBROS
 CREATE TABLE RUBROS (
-    id_rublo int  NOT NULL,
+    id_rublo serial  NOT NULL,
     nombre_rubro varchar(100)  NOT NULL,
     url varchar(200)  NOT NULL,
     CONSTRAINT RUBROS_pk PRIMARY KEY (id_rublo)
 );
-
-SELECT * FROM RUBROS;
 
 -- Table: RUBROS_ACTIVIDADES
 CREATE TABLE RUBROS_ACTIVIDADES (
@@ -247,11 +205,9 @@ CREATE TABLE RUBROS_ACTIVIDADES (
     CONSTRAINT RUBROS_ACTIVIDADES_pk PRIMARY KEY (id_rublo,id_actividad)
 );
 
-SELECT * FROM RUBROS_ACTIVIDADES;
-
 -- Table: SEDES
 CREATE TABLE SEDES (
-    id_ubicacion int  NOT NULL,
+    id_ubicacion serial  NOT NULL,
     id_municipio int  NOT NULL,
     zona varchar(50)  NOT NULL,
     calle varchar(50)  NOT NULL,
@@ -262,11 +218,9 @@ CREATE TABLE SEDES (
     CONSTRAINT SEDES_pk PRIMARY KEY (id_ubicacion)
 );
 
-SELECT * FROM SEDES;
-
 -- Table: SERVICIO
 CREATE TABLE SERVICIO (
-    id_servicio int  NOT NULL,
+    id_servicio serial  NOT NULL,
     id_item int  NOT NULL,
     duracion int  NOT NULL,
     modalidad varchar(100)  NOT NULL,
@@ -274,36 +228,28 @@ CREATE TABLE SERVICIO (
     CONSTRAINT SERVICIO_pk PRIMARY KEY (id_servicio)
 );
 
-SELECT * FROM SERVICIO;
-
 -- Table: TAMANIOS_EMPRESAS
 CREATE TABLE TAMANIOS_EMPRESAS (
-    id_tamanio int  NOT NULL,
+    id_tamanio serial  NOT NULL,
     nombre_tamanio varchar(100)  NOT NULL,
     CONSTRAINT TAMANIOS_EMPRESAS_pk PRIMARY KEY (id_tamanio)
 );
 
-SELECT * FROM TAMANIOS_EMPRESAS;
-
 -- Table: TIPOS_SOCIETARIOS
 CREATE TABLE TIPOS_SOCIETARIOS (
-    id_tipsoc int  NOT NULL,
+    id_tipsoc serial  NOT NULL,
     nombre_tipsoc varchar(50)  NOT NULL,
     CONSTRAINT TIPOS_SOCIETARIOS_pk PRIMARY KEY (id_tipsoc)
 );
 
-SELECT * FROM TIPOS_SOCIETARIOS;
-
 -- Table: USUARIOS
 CREATE TABLE USUARIOS (
-    id_usuario int  NOT NULL,
+    id_usuario serial  NOT NULL,
     id_rol int  NOT NULL,
-    usuario varchar(50)  NOT NULL,
+    email varchar(50)  NOT NULL,
     contrasenia varchar(100)  NOT NULL,
     CONSTRAINT USUARIOS_pk PRIMARY KEY (id_usuario)
 );
-
-SELECT * FROM USUARIOS;
 
 -- foreign keys
 -- Reference: CIUDAD_DEPARTAMENTO (table: CIUDADES)
@@ -468,7 +414,7 @@ ALTER TABLE PRODUCTO ADD CONSTRAINT PRODUCTO_ITEMS
 
 -- Reference: PROPIETARIOS_FAMILIA (table: PROPIETARIOS)
 ALTER TABLE PROPIETARIOS ADD CONSTRAINT PROPIETARIOS_FAMILIA
-    FOREIGN KEY (FAMILIA_id_familia)
+    FOREIGN KEY (id_familia)
     REFERENCES FAMILIA (id_familia)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
