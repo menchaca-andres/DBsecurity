@@ -63,9 +63,9 @@ INSERT INTO ROLES (id_rol, nombre_rol) VALUES
 (2, 'Visitante');
 
 -- Tabla Usuarios
-INSERT INTO USUARIOS (id_usuario, id_rol, email, contrasenia) VALUES
-(1, 1, 'ejemplo1@gmail.com', 'admin123'),
-(2, 1, 'ejemplo2@gmail.com', 'admin21234');
+INSERT INTO USUARIOS (id_usuario, id_rol, usuario, contrasenia) VALUES
+(1, 1, 'usuario1', 'admin123'),
+(2, 1, 'usuario2', 'admin21234');
 
 -- Tabla Familia
 INSERT INTO FAMILIA (id_familia, nombre_familia) VALUES
@@ -86,22 +86,22 @@ INSERT INTO FAMILIA (id_familia, nombre_familia) VALUES
 (15, 'Smirnova');
 
 -- Tabla Propietarios
-INSERT INTO PROPIETARIOS (id_propietario, nombre, apellido_paterno, apellido_materno, nacionalidad, FAMILIA_id_familia) VALUES
-(1, 'Juan', 'Pérez', 'Gómez', 'Boliviana', 1),
-(2, 'María', 'González', 'López', 'Boliviana', 2),
-(3, 'Carlos', 'López', 'Martínez', 'Argentina', 3),
-(4, 'Ana', 'Flores', 'Quispe', 'Boliviana', 4),
-(5, 'Luis', 'Aguilar', 'Choque', 'Peruana', 5),
-(6, 'Sofía', 'Rodríguez', 'Mamani', 'Boliviana', 6),
-(7, 'Miguel', 'Guachalla', 'Vargas', 'Chilena', 7),
-(8, 'Elena', 'Choque', 'Salazar', 'Boliviana', 8),
-(9, 'Diego', 'Castillo', 'Valdivia', 'Argentina', 9),
-(10, 'Lucía', 'Vargas', 'Mendoza', 'Boliviana', 10),
-(11, 'Fernando', 'Mendoza', 'Rojas', 'Boliviana', 11),
-(12, 'Rosa', 'Salazar', 'Arce', 'Boliviana', 12),
-(13, 'Ángel', 'Valdivia', 'Peña', 'Boliviana', 13),
-(14, 'Vladimir', 'Ivanov', 'Petrov', 'Rusa', 14),
-(15, 'Anastasia', 'Smirnova', 'Kuznetsova', 'Rusa', 15);
+INSERT INTO PROPIETARIOS (id_propietario, nombre, apellido_paterno, apellido_materno, nacionalidad, es_familia, id_familia) VALUES
+(1, 'Juan', 'Pérez', 'Gómez', 'Boliviana', true, 1),
+(2, 'María', 'González', 'López', 'Boliviana', true, 2),
+(3, 'Carlos', 'López', 'Martínez', 'Argentina', true, 3),
+(4, 'Ana', 'Flores', 'Quispe', 'Boliviana', true, 4),
+(5, 'Luis', 'Aguilar', 'Choque', 'Peruana', true, 5),
+(6, 'Sofía', 'Rodríguez', 'Mamani', 'Boliviana', true, 6),
+(7, 'Miguel', 'Guachalla', 'Vargas', 'Chilena', true, 7),
+(8, 'Elena', 'Choque', 'Salazar', 'Boliviana', true, 8),
+(9, 'Diego', 'Castillo', 'Valdivia', 'Argentina', true, 9),
+(10, 'Lucía', 'Vargas', 'Mendoza', 'Boliviana', true, 10),
+(11, 'Fernando', 'Mendoza', 'Rojas', 'Boliviana', true, 11),
+(12, 'Rosa', 'Salazar', 'Arce', 'Boliviana', true, 12),
+(13, 'Ángel', 'Valdivia', 'Peña', 'Boliviana', true, 13),
+(14, 'Vladimir', 'Ivanov', 'Petrov', 'Rusa', true, 14),
+(15, 'Anastasia', 'Smirnova', 'Kuznetsova', 'Rusa', true, 15);
 
 --Tabla tipo-societario
 INSERT INTO TIPOS_SOCIETARIOS (id_tipsoc, nombre_tipsoc) VALUES
@@ -121,17 +121,17 @@ INSERT INTO TAMANIOS_EMPRESAS (id_tamanio, nombre_tamanio) VALUES
 (4, 'Gran Empresa');
 
 --Tabla empresas
-INSERT INTO EMPRESAS (id_empresa, denominacion_social, nombre_comercial, fecha_fundacion, fecha_cierre, nit, url) VALUES
-(1, 'Tech Solutions S.A.', 'TechSol', '2010-05-15', NULL, 123456, 'elEjemplo'),
-(2, 'Alimentos Saludables Ltda.', 'AlimentaSalud', '2005-08-20', NULL, 654321, 'elEjemplo'),
-(3, 'Construcciones Modernas SRL', 'Construmod', '2018-03-10', '2023-12-31', 789012, 'elEjemplo'),
-(4, 'Innovación Creativa S.R.L.', 'InnovaCrea', '2015-01-20', NULL, 456789, 'elEjemplo'),
-(5, 'Distribuciones Globales S.A.', 'GlobalDistrib', '2000-11-10', NULL, 123789, 'elEjemplo'),
-(6, 'Mi Empresa S.R.L.', 'Esto de aquí', '1999-07-15', '2005-02-06', 321456, 'elEjemplo'),
-(7, 'Tiendita de Juan', 'TienditaJuan', '2020-03-05', '2020-04-05', 987654, 'elEjemplo'),
-(8, 'La Sede Importadora', 'Mi Sede S.R.L.', '2012-06-25', NULL, 654987, 'elEjemplo'),
-(9, 'Mi Empresa Ltda.', 'TecnoInnova', '2019-09-01', NULL, 741852, 'elEjemplo'),
-(10, 'Mega Proyectos Bolivia S.A.', 'MegaBolivia', '2008-05-22', NULL, 852963, 'elUrlEjemplo');
+INSERT INTO EMPRESAS (id_empresa, denominacion_social, nombre_comercial, fecha_fundacion, fecha_cierre, nit, eslogan, descripcion, url) VALUES
+(1, 'Tech Solutions S.A.', 'TechSol', '2010-05-15', NULL, 123456, 'Somos la número 1 en tecnolgía', 'Descripción aquí', 'elEjemplo'),
+(2, 'Alimentos Saludables Ltda.', 'AlimentaSalud', '2005-08-20', NULL, 654321, 'Cuidamos tu salud', 'Descripción aquí', 'elEjemplo'),
+(3, 'Construcciones Modernas SRL', 'Construmod', '2018-03-10', '2023-12-31', 789012, 'Nos aseguramos que el techo de tu casa no te caiga encima', 'Descripción aquí', 'elEjemplo'),
+(4, 'Innovación Creativa S.R.L.', 'InnovaCrea', '2015-01-20', NULL, 456789, 'Creer es crear', 'Descripción aquí', 'elEjemplo'),
+(5, 'Distribuciones Globales S.A.', 'GlobalDistrib', '2000-11-10', NULL, 123789, 'Hasta la puerta de tu casa', 'Descripción aquí', 'elEjemplo'),
+(6, 'Mi Empresa S.R.L.', 'Esto de aquí', '1999-07-15', '2005-02-06', 321456, 'Tu empresa', 'Descripción aquí', 'elEjemplo'),
+(7, 'Tiendita de Juan', 'TienditaJuan', '2020-03-05', '2020-04-05', 987654, 'Juan y los mejores panes', 'Descripción aquí', 'elEjemplo'),
+(8, 'La Sede Importadora', 'Mi Sede S.R.L.', '2012-06-25', NULL, 654987, 'Importamos lo que quieras', 'Descripción aquí', 'elEjemplo'),
+(9, 'Mi Empresa Ltda.', 'TecnoInnova', '2019-09-01', NULL, 741852, 'Otra empresa', 'Descripción aquí', 'elEjemplo'),
+(10, 'Mega Proyectos Bolivia S.A.', 'MegaBolivia', '2008-05-22', NULL, 852963, 'La mejor en Bolivia', 'Descripción aquí', 'elUrlEjemplo');
 
 --Tabla empresas-tipos-societarios
 INSERT INTO EMPRESAS_TIPOS_SOCIETARIOS (id_empresa, id_tipsoc, fecha_inicio, fecha_fin) VALUES

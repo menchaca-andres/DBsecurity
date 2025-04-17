@@ -41,6 +41,8 @@ CREATE TABLE EMPRESAS (
     fecha_fundacion date  NOT NULL,
     fecha_cierre date  NULL,
     nit int  NOT NULL,
+    eslogan varchar(100) NOT NULL,
+    descripcion text NOT NULL,
     url varchar(200)  NOT NULL,
     CONSTRAINT EMPRESAS_pk PRIMARY KEY (id_empresa)
 );
@@ -180,6 +182,7 @@ CREATE TABLE PROPIETARIOS (
     apellido_paterno varchar(100)  NOT NULL,
     apellido_materno varchar(100)  NOT NULL,
     nacionalidad varchar(200)  NOT NULL,
+    es_familia boolean NOT NULL,
     CONSTRAINT PROPIETARIOS_pk PRIMARY KEY (id_propietario)
 );
 
@@ -246,7 +249,7 @@ CREATE TABLE TIPOS_SOCIETARIOS (
 CREATE TABLE USUARIOS (
     id_usuario serial  NOT NULL,
     id_rol int  NOT NULL,
-    email varchar(50)  NOT NULL,
+    usuario varchar(50)  NOT NULL,
     contrasenia varchar(100)  NOT NULL,
     CONSTRAINT USUARIOS_pk PRIMARY KEY (id_usuario)
 );
