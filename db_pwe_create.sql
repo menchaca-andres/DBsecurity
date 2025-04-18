@@ -181,7 +181,7 @@ CREATE TABLE PRODUCTO (
 -- Table: PROPIETARIOS
 CREATE TABLE PROPIETARIOS (
     id_propietario serial  NOT NULL,
-    id_familia int  NOT NULL,
+    id_familia int NULL,
     nombre varchar(100)  NOT NULL,
     apellido_paterno varchar(100)  NOT NULL,
     apellido_materno varchar(100)  NOT NULL,
