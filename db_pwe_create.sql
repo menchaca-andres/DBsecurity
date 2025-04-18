@@ -52,8 +52,8 @@ CREATE TABLE EMPRESAS_ITEMS (
     id_empresa_item int  NOT NULL,
     id_empresa int  NOT NULL,
     id_item int  NOT NULL,
-    fecha_inicio_c date  NOT NULL,
-    fecha_fin_c date  NOT NULL,
+    fecha_inicio_c date  NULL,
+    fecha_fin_c date  NULL,
     CONSTRAINT EMPRESAS_ITEMS_pk PRIMARY KEY (id_empresa_item)
 );
 
@@ -72,7 +72,7 @@ CREATE TABLE EMPRESAS_TAMANIOS (
     id_empresa int  NOT NULL,
     id_tamanio int  NOT NULL,
     fecha_inicio_et date  NOT NULL,
-    fecha_fin_et date  NOT NULL,
+    fecha_fin_et date  NULL,
     num_empleados int  NOT NULL,
     CONSTRAINT EMPRESAS_TAMANIOS_pk PRIMARY KEY (id_tamanio,id_empresa)
 );
