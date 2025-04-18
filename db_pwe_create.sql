@@ -69,31 +69,34 @@ CREATE TABLE EMPRESAS_SEDES (
 
 -- Table: EMPRESAS_TAMANIOS
 CREATE TABLE EMPRESAS_TAMANIOS (
+    id_empresas_tamanios serial NOT NULL,
     id_empresa int  NOT NULL,
     id_tamanio int  NOT NULL,
     fecha_inicio_et date  NOT NULL,
     fecha_fin_et date  NULL,
     num_empleados int  NOT NULL,
-    CONSTRAINT EMPRESAS_TAMANIOS_pk PRIMARY KEY (id_tamanio,id_empresa)
+    CONSTRAINT EMPRESAS_TAMANIOS_pk PRIMARY KEY (id_empresas_tamanios)
 );
 
 -- Table: EMPRESAS_TIPOS_SOCIETARIOS
 CREATE TABLE EMPRESAS_TIPOS_SOCIETARIOS (
+    id_empresas_tipos_societarios serial NOT NULL,
     id_empresa int  NOT NULL,
     id_tipsoc int  NOT NULL,
     fecha_inicio date  NOT NULL,
     fecha_fin date  NULL,
-    CONSTRAINT EMPRESAS_TIPOS_SOCIETARIOS_pk PRIMARY KEY (id_empresa,id_tipsoc)
+    CONSTRAINT EMPRESAS_TIPOS_SOCIETARIOS_pk PRIMARY KEY (id_empresas_tipos_societarios)
 );
 
 -- Table: EMPRESA_ACTIVIDAD
 CREATE TABLE EMPRESA_ACTIVIDAD (
+    id_empresa_actividad serial NOT NULL,
     id_actividad int  NOT NULL,
     id_empresa int  NOT NULL,
     fecha_inicio date  NOT NULL,
     fecha_fin date  NULL,
     principal boolean  NOT NULL,
-    CONSTRAINT EMPRESA_ACTIVIDAD_pk PRIMARY KEY (id_actividad,id_empresa)
+    CONSTRAINT EMPRESA_ACTIVIDAD_pk PRIMARY KEY (id_empresa_actividad)
 );
 
 -- Table: FAMILIA
@@ -160,10 +163,11 @@ CREATE TABLE PREMIOS (
 
 -- Table: PREMIOS_EMPRESAS
 CREATE TABLE PREMIOS_EMPRESAS (
+    id_premios_empresa serial NOT NULL,
     id_premio int  NOT NULL,
     id_empresa int  NOT NULL,
     fecha_p date  NOT NULL,
-    CONSTRAINT PREMIOS_EMPRESAS_pk PRIMARY KEY (id_premio,id_empresa)
+    CONSTRAINT PREMIOS_EMPRESAS_pk PRIMARY KEY (id_premios_empresa)
 );
 
 -- Table: PRODUCTO
