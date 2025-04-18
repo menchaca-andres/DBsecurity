@@ -1,5 +1,4 @@
 -- trigger para la tabla EMPRESAS_TAMANIOS para actualizar la fecha_fin_et
-
 CREATE OR REPLACE FUNCTION actualizar_fecha_tamanio()
 RETURNS TRIGGER AS $$
 DECLARE
