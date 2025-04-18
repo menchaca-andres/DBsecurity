@@ -82,7 +82,7 @@ CREATE TABLE EMPRESAS_TIPOS_SOCIETARIOS (
     id_empresa int  NOT NULL,
     id_tipsoc int  NOT NULL,
     fecha_inicio date  NOT NULL,
-    fecha_fin date  NOT NULL,
+    fecha_fin date  NULL,
     CONSTRAINT EMPRESAS_TIPOS_SOCIETARIOS_pk PRIMARY KEY (id_empresa,id_tipsoc)
 );
 
