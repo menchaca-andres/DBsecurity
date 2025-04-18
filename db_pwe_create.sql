@@ -105,7 +105,7 @@ CREATE TABLE FAMILIA (
 
 -- Table: HISTORIAL_PROPIEDAD
 CREATE TABLE HISTORIAL_PROPIEDAD (
-    id_historial int  NOT NULL,
+    id_historial serial  NOT NULL,
     id_propietario int  NOT NULL,
     id_empresa int  NOT NULL,
     fecha_inicio date  NOT NULL,
